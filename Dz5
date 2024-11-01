@@ -1,0 +1,36 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 1, 2, 3, 4, 5 };
+
+        Action<int[]> displayElements = DisplayArray;
+        Action<int[]> calculateAverage = CalculateAverage;
+
+        displayElements(numbers);
+        calculateAverage(numbers);
+    }
+
+    static void DisplayArray(int[] arr)
+    {
+        Console.WriteLine("Array elements:");
+        foreach (int num in arr)
+        {
+            Console.Write(num + " ");
+        }
+        Console.WriteLine();
+    }
+    
+    static void CalculateAverage(int[] arr)
+    {
+        double sum = 0;
+        foreach (int num in arr)
+        {
+            sum += num;
+        }
+        double average = sum / arr.Length;
+        Console.WriteLine("Average: " + average);
+    }
+}
